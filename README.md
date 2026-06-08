@@ -1,8 +1,10 @@
 # VB MVP Template — Startup Builders #2, Week 3
 
-Szablon repozytorium do **forka** na 7-dniowy build MVP. Trzyma w jednym miejscu Twój kontekst z W1/W2, prompty jako komendy i reguły dla agenta. Działa dla **obu ścieżek** (Builder i Tech).
+Szablon repozytorium + komplet materiałów na 7-dniowy build MVP. W jednym miejscu: **playbook** ([PLAYBOOK.md](./PLAYBOOK.md)), **4 prompty** (`prompts/`), kontekst z W1/W2, reguły dla agenta. Działa dla **obu ścieżek** (Builder i Tech).
 
-> Po co repo, skoro robię w Lovable? Bo to magazyn kontekstu (artefakty W1/W2 + brand + prd) i — jeśli włączysz GitHub sync w Lovable — miejsce na log decyzji. Track Tech pracuje w nim bezpośrednio.
+**Jak korzystać — zależnie od ścieżki:**
+- **Track Tech** → *Use this template*, pracujesz w repo, prompty jako komendy `/brand` `/prd` `/reguly` `/milestones`.
+- **Track Builder** → **nie musisz forkować.** Repo to Twoje źródło informacji: czytasz [PLAYBOOK.md](./PLAYBOOK.md) i kopiujesz prompty z [`prompts/`](./prompts) do Lovable/v0/czatu. Opcjonalnie użyj szablonu jako magazynu kontekstu (artefakty W1/W2 + log decyzji przez GitHub sync).
 
 ---
 
@@ -11,8 +13,8 @@ Szablon repozytorium do **forka** na 7-dniowy build MVP. Trzyma w jednym miejscu
 1. Kliknij **"Use this template" → Create a new repository** (zielony przycisk u góry) → nazwij jak projekt (np. `clear-table-mvp`). To czystsze niż fork — dostajesz własną historię, bez powiązania z oryginałem.
 2. Sklonuj lokalnie (Track Tech) albo zostaw na GitHub (Track Builder + sync).
 3. Wrzuć artefakty z poprzednich tygodni do `context/` (patrz niżej).
-4. **Track Tech:** otwórz repo w Claude Code — komendy `/brand`, `/prd`, `/reguly`, `/milestones` są od razu dostępne (siedzą w `.claude/commands/`).
-5. **Track Builder:** prompty masz w `.claude/commands/*.md` jako czysty markdown — kopiuj treść do okna Lovable/v0/czatu.
+4. **Track Tech:** otwórz repo w Claude Code — komendy `/brand`, `/prd`, `/reguly`, `/milestones` są od razu dostępne (siedzą w `.claude/commands/`, czytają pliki repo).
+5. **Track Builder:** bierzesz prompty z [`prompts/`](./prompts) (wersje do wklejenia, z blokami PROMPT START/END) i kopiujesz do okna Lovable/v0/czatu. *(Komendy w `.claude/commands/` są dla Claude Code — czytają pliki repo, więc do wklejania użyj `prompts/`.)*
 
 ## 2. Co gdzie wrzucić
 
@@ -26,6 +28,8 @@ prd.md          ← generowany /prd (krok 2)
 goals.md        ← generowany /milestones (krok 4) + Twój log decyzji
 CLAUDE.md       ← reguły projektu (Track Tech) — generowane /reguly (krok 3)
 AGENTS.md       ← to samo dla innych narzędzi agentowych (otwarty standard)
+PLAYBOOK.md     ← pełny playbook W3 (czytaj, nie edytuj)
+prompts/        ← 4 prompty do wklejenia (Track Builder / dowolny czat)
 README.md       ← ten plik; po deployu dopisz URL produkcyjny
 ```
 
@@ -40,7 +44,7 @@ README.md       ← ten plik; po deployu dopisz URL produkcyjny
 | 3 | `/reguly` | `CLAUDE.md` / `AGENTS.md` / Lovable Knowledge | `prd.md` + `brand.md` |
 | 4 | `/milestones` | `goals.md` | `prd.md` |
 
-Pełny opis każdej fazy: **playbook W3** (osobny dokument z materiałów programu).
+Pełny opis każdej fazy (Fazy 0–5, anty-wzorce, realne czasy): **[PLAYBOOK.md](./PLAYBOOK.md)** w tym repo.
 
 ## 4. Track Tech — skille z shared-skills (opcjonalnie)
 
