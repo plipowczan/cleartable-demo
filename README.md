@@ -6,9 +6,9 @@ Szablon repozytorium do **forka** na 7-dniowy build MVP. Trzyma w jednym miejscu
 
 ---
 
-## 1. Fork i konfiguracja (5 min)
+## 1. Załóż swoje repo z tego szablonu (5 min)
 
-1. **Fork** tego repo na swoje konto GitHub → nazwij jak projekt (np. `clear-table-mvp`).
+1. Kliknij **"Use this template" → Create a new repository** (zielony przycisk u góry) → nazwij jak projekt (np. `clear-table-mvp`). To czystsze niż fork — dostajesz własną historię, bez powiązania z oryginałem.
 2. Sklonuj lokalnie (Track Tech) albo zostaw na GitHub (Track Builder + sync).
 3. Wrzuć artefakty z poprzednich tygodni do `context/` (patrz niżej).
 4. **Track Tech:** otwórz repo w Claude Code — komendy `/brand`, `/prd`, `/reguly`, `/milestones` są od razu dostępne (siedzą w `.claude/commands/`).
