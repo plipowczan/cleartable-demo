@@ -155,7 +155,7 @@ PRD mówi **CO** budujemy. Reguły mówią, **JAK narzędzie ma się zachowywać
 
 1. Użyj **PROMPT_Reguły projektu** (dostarczony w materiałach W3) — reguły są **wyprowadzane** z Twojego `prd.md` + `brand.md` (stack lock, brand, zakazy z §6, protokół decyzji z §7), nie wymyślane. *(Track Tech z szablonu: `/reguly` — wpisuje konstytucję wprost do `CLAUDE.md`.)*
 2. Wynik wklej w narzędzie:
-   - **Lovable** → Project Settings → **Knowledge**
+   - **Lovable** → Project Settings → **Knowledge** *(a jeśli masz włączony GitHub sync — Lovable czyta też `AGENTS.md`/`CLAUDE.md` z repo, więc reguły z szablonu działają bez ręcznego wklejania)*
    - **v0** → ustawienia projektu / instructions
    - **Claude Code** → plik **`CLAUDE.md`** w głównym katalogu repo
    - inne narzędzia agentowe → plik **`AGENTS.md`** (otwarty standard)
@@ -179,6 +179,8 @@ Track Builder dostaje w PRD sekcję §9 (Component Inventory) i generator Lovabl
 Bonus: impeccable zna typowe "AI-design tells" (Inter wszędzie, fioletowe gradienty, karty w kartach) i aktywnie ich unika — Twoje MVP nie będzie wyglądać jak każdy inny side-project.
 
 **Opcja dla Track Builder (eksperymentalna — dla chętnych):** Lovable synchronizuje kod do GitHuba. Możesz więc zrobić audit designu na kodzie **bez opuszczania Lovable jako edytora**: (1) włącz GitHub sync w Lovable, (2) sklonuj repo i odpal `/impeccable audit` w Claude Code **tylko do odczytu** — dostajesz listę problemów (AI-slop w designie, kontrasty, responsywność), (3) poprawki wprowadzasz **z powrotem briefingami w Lovable**, nie edytując kodu ręcznie (edycja w dwóch miejscach naraz = konflikty synca). Traktuj to jak zewnętrznego recenzenta, nie zmianę narzędzia. Nie testowaliśmy tego end-to-end — jeśli spróbujesz, podziel się wynikiem na grupie.
+
+**Druga opcja (nowsze, też nietestowane): Lovable ma natywne Skills.** Od ~maja 2026 do Lovable wgrasz skill jako markdownową paczkę: **Settings → Skills → Add → Upload ZIP** (skill z Claude eksportujesz jako `.zip`/`.skill`), albo poprosisz Lovable o zapis powtarzalnego workflow jako skill. Odpalasz go `/komendą` w prompcie lub Lovable stosuje go automatycznie. Teoretycznie pozwala to wgrać skill designowy (np. impeccable wyeksportowany do `.zip`) **wprost do Lovable** — bez objazdu przez Claude Code. **Zastrzeżenie:** komendy impeccable pisane są pod Claude Code (dostęp do plików, własny runtime), więc nie ma gwarancji że zadziałają w Lovable 1:1 — to do sprawdzenia. Jak ktoś przetestuje, niech da znać na grupie.
 
 ### Zrobione, gdy:
 
