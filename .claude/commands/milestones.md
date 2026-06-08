@@ -20,7 +20,7 @@ NIE 1 milestone = 1 user story. Grupuj po warstwie:
 | M2 | dane | encje z §4 + seed (POMIŃ jeśli projekt bez bazy) | 80–100 tur / pół dnia |
 | M3 | core flow UI | ekrany A→B→C z §3, z brand reference | 100–120 tur / 1 dzień |
 | M4 | integracja + edge cases | auth, walidacja, error states, stany puste | 60–80 tur / pół dnia |
-| M5 | deploy + analytics | publiczny URL, UTM, data-analytics-event, smoke test | 40–60 tur / pół dnia |
+| M5 | deploy | publiczny URL + smoke test (+ Vercel Analytics, 1 linijka; reszta analityki = W4) | 40–60 tur / pół dnia |
 
 Kolejność absolutna: M1 fundament pierwszy · dane przed UI · deploy ostatni · sekwencyjnie. Mały Core Flow → możesz połączyć M3+M4 (4 milestone'y). Projekt bez bazy → pomiń M2.
 

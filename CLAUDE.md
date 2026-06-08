@@ -18,7 +18,6 @@ Gdy budujesz UI — czytaj `context/brand.md` i stosuj wartości stamtąd. Gdy d
 
 - Język UI: {polski / angielski — ustal}
 - Responsywność: od 375px wzwyż
-- Każdy przycisk core flow: atrybut `data-analytics-event="nazwa-zdarzenia"`
 - Każdy widok z danymi: obsłuż stan pusty i stan błędu
 - Nie proponuj zmiany stacku ani nowych bibliotek bez pytania
 

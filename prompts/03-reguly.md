@@ -53,7 +53,7 @@ Z §3 PRD: jedno zdanie czym jest Core Flow. Z §6 PRD: lista rzeczy POZA zakres
 - Treści i copy: używaj sformułowań z PRD/brand (zwalidowany język), nie generuj własnego marketingu.
 
 ## Konwencje
-3-5 punktów dopasowanych do tracku, np.: język UI (polski/angielski), responsywność od 375px, każdy przycisk core flow z atrybutem `data-analytics-event`, obsługa stanów pustych i błędów w każdym widoku z danymi.
+3-5 punktów dopasowanych do tracku, np.: język UI (polski/angielski), responsywność od 375px, obsługa stanów pustych i błędów w każdym widoku z danymi.
 
 [ZASADY]
 1. Wszystko wyprowadzasz z dostarczonych plików. Jeśli czegoś w nich nie ma (np. język UI) — przyjmij najbardziej oczywiste założenie z kontekstu i poproś o potwierdzenie w JEDNYM zbiorczym pytaniu (nie blokuj generacji przy oczywistych brakach).

@@ -68,7 +68,7 @@ Decyzje, których agent nie podejmuje sam, każda z ownerem.
 - [ ] Production URL działa publicznie (incognito → core flow)
 - [ ] Core Flow §3 przechodzi smoke test
 - [ ] Mobile responsive (≥375px)
-- [ ] Hooki analytics na miejscu (data-analytics-event)
+- [ ] Vercel Analytics podpięty (1 linijka; reszta analityki = W4)
 - [ ] [per projekt]
 
 ## §9 — Component Inventory (TYLKO Track Builder; Tech POMIŃ)

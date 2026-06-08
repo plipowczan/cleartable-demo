@@ -88,7 +88,7 @@ Decyzje, których agent nie podejmuje sam: provider oznaczony TBD, treści marke
 - [ ] Production URL działa publicznie (incognito → core flow przechodzi)
 - [ ] Core Flow §3 przechodzi smoke test end-to-end
 - [ ] Mobile responsive (≥375px)
-- [ ] Hooki analytics na miejscu (data-analytics-event na przyciskach core flow)
+- [ ] Vercel Analytics podpięty (1 linijka; reszta analityki = Week 4)
 - [ ] [dodatkowe per projekt]
 
 ## §9 — Component Inventory (TYLKO gdy §5 = Track Builder; dla Track Tech POMIŃ całkowicie)

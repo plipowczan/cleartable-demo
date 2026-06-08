@@ -20,7 +20,7 @@ Faza 1: PRD                        →  pon→śr (zadanie po Spotkaniu 1, KROK 
 Faza 2: Track lock + reguły        →  decyzja: poniedziałek · reguły: pon→śr (KROK 3, ~10 min)
 Faza 3: Milestones M1–M5           →  środa (Spotkanie 2)
 Faza 4: Build                      →  środa → sobota
-Faza 5: Deploy + analytics         →  sobota → niedziela (handoff do Week 4)
+Faza 5: Deploy (+ Vercel Analytics) →  sobota → niedziela (handoff do Week 4)
 ```
 
 | Faza | Output                                                       | Deadline            |
@@ -200,7 +200,7 @@ Bonus: impeccable zna typowe "AI-design tells" (Inter wszędzie, fioletowe gradi
 | **M2 Dane** *(opcjonalny)* | Tabele z `prd.md` §4 w Supabase + dane testowe — **pomiń, jeśli projekt nie potrzebuje bazy (Faza 0)** | Dane widoczne w aplikacji (lista/widok czyta z bazy)         |
 | **M3 Core flow UI**       | Ekrany A→B→C z §3, z brand reference                         | Klikasz całą ścieżkę w preview                               |
 | **M4 Edge cases**         | Walidacja formularzy, error states, auth (jeśli w core flow) | Świadome zepsucie (puste pole, błędny input) nie wywala apki |
-| **M5 Deploy + analytics** | Publiczny URL, UTM, eventy, smoke test                       | Faza 5 ☑                                                     |
+| **M5 Deploy**             | Publiczny URL + smoke test (+ Vercel Analytics, 1 linijka)   | Faza 5 ☑                                                     |
 
 Zapisz w `goals.md`: lista M1–M5 + który fragment Core Flow z §3 realizuje każdy milestone. W trakcie buildu dopisuj decyzje (log = Twoja pamięć projektu).
 
@@ -254,23 +254,22 @@ opisz milestone w briefingu (z brand.md!)  →  Lovable generuje  →  sprawdź 
 
 ---
 
-## Faza 5 — Deploy + analytics + handoff (sobota → niedziela)
+## Faza 5 — Deploy + handoff (sobota → niedziela)
 
 **Cel:** MVP pod publicznym URL-em, gotowe na ruch z LP i analitykę Wojtka (Week 4).
 
 ### Kroki
 
 1. **Production deploy:** Builder — publikacja przez UI narzędzia; Tech — merge do main / `vercel --prod`. Zostań na domenie `*.vercel.app` / domenie narzędzia — custom domain z migracją DNS w ostatni dzień to ryzyko 24h propagacji.
-2. **Analytics — minimum po Twojej stronie, reszta w W4.**
-   - **Vercel Analytics (zrób teraz — 1 linijka):** `@vercel/analytics` + `<Analytics/>` w root layoutu. Daje page views i Web Vitals za darmo na Vercel, zero konfiguracji. Tyle wystarczy z Twojej strony. *(Track Builder na Lovable/v0: tylko jeśli deploy idzie przez Vercel — jak nie, pomiń.)*
-   - **Zostaw haczyki pod resztę** (puste miejsce, nie instalacja): parametry UTM łapane na wejściu · `data-analytics-event="nazwa-zdarzenia"` na przyciskach core flow · puste `<!-- analytics -->` w `<head>`.
-   - *(do wiadomości — NIE robisz tego teraz)* **PostHog** (zdarzenia produktowe, lejki) i pełna analityka wchodzą w **W4 z Wojtkiem** — instalację i strojenie robi on. Wspominam, żebyś wiedział pod co zostawiasz haczyki.
+2. **Analytics — tylko Vercel po Twojej stronie, cała reszta w W4.**
+   - **Vercel Analytics (zrób teraz — 1 linijka):** `@vercel/analytics` + `<Analytics/>` w root layoutu. Daje page views i Web Vitals za darmo na Vercel, zero konfiguracji. **To jedyna rzecz analityczna, którą robisz w W3.** *(Track Builder na Lovable/v0: tylko jeśli deploy idzie przez Vercel — jak nie, pomiń.)*
+   - **Cała pozostała analityka = W4 z Wojtkiem.** Zdarzenia, lejki, PostHog, śledzenie kampanii — **nie zajmujesz się tym teraz, nie musisz nic zostawiać ani konfigurować.** Przychodzisz do W4 z działającym URL-em, a Wojtek prowadzi analitykę od zera.
 3. **(Track Tech) `/impeccable audit`** przed smoke testem — automatyczny przegląd a11y, responsywności i jakości UI; pokrywa część DoD (mobile ≥375px) zanim sprawdzisz ręcznie.
 4. **Smoke test — zawsze w trybie incognito:**
    - Otwórz produkcyjny URL w oknie incognito → przejdź cały Core Flow
    - Sprawdź na mobile (DevTools, 375px)
    - Logowanie Google/OAuth przetestuj OSOBIŚCIE — agent nie ma prawdziwych kont, więc tego za Ciebie nie sprawdził
-5. **Handoff na grupę:** URL + lista zdarzeń analytics + znane braki (uczciwie — "known issues" to profesjonalizm, nie wstyd)
+5. **Handoff na grupę:** URL + znane braki (uczciwie — "known issues" to profesjonalizm, nie wstyd)
 
 ### ⚠️ Vercel Deployment Protection (częsta pułapka)
 
@@ -280,8 +279,8 @@ Vercel domyślnie chroni nowe projekty: aliasy `<projekt>-<team>.vercel.app` zwr
 
 - [ ] URL działa publicznie (incognito → core flow przechodzi end-to-end)
 - [ ] Mobile responsive (≥375px)
-- [ ] Hooki analytics na miejscu
-- [ ] Handoff na grupie: URL + lista eventów + known issues
+- [ ] Vercel Analytics podpięty (1 linijka) — *(reszta analityki = W4)*
+- [ ] Handoff na grupie: URL + known issues
 - [ ] `prd.md` §8 Definition of Done — wszystko ☑
 
 ---
@@ -320,7 +319,7 @@ Playbook przetestowałem end-to-end na projekcie MentorMatch (marketplace konsul
 
 > **Co znaczy te "~7h"?** To **czas zegarowy z agentem pracującym w tle + Twoje review na bramkach — nie 7h ciągłego klikania.** Agent potrafi mleć jeden milestone kilkadziesiąt minut do kilku godzin; Ty wracasz tylko na checkpointach (DoD, bramki §7). Twój realny hands-on jest **dużo krótszy** niż suma w tabeli. Nie czytaj tego jako "7h przy klawiaturze" — czytaj jako "tyle trwa, zanim build się domknie, w większości bez Ciebie".
 
-Efekt: działający marketplace pod publicznym URL-em (auth Google, lista mentorów, rezerwacja slotu, fake checkout, analytics hooks). Wnioski dla Ciebie:
+Efekt: działający marketplace pod publicznym URL-em (auth Google, lista mentorów, rezerwacja slotu, fake checkout). Wnioski dla Ciebie:
 
 1. **Planistyka jest tania, build jest drogi** — dlatego nie skracaj Faz 0-1, one decydują o jakości buildu
 2. **7 dni to deadline, nie harmonogram** — możesz zrobić plan w środę, przerwę w czwartek i build w piątek-sobotę, byle niedziela się zgadzała
