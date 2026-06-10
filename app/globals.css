@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — ClearTable PL */
+  --color-primary: #0F2A4A;
+  --color-secondary: #1D6FB8;
+  --color-background: #F6F8FB;
+  --color-surface: #FFFFFF;
+  --color-text: #0F1B2D;
+  --color-muted: #51607A;
+  --color-success: #1F8A5B;
+  --color-error: #C2362F;
+  --color-border: #E2E8F0;
+
+  /* Fonts (wired via next/font CSS variables) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --radius-lg: 8px;
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Liczby udziałów/% — IBM Plex Mono, tabular, do prawej */
+.num {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
