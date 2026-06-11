@@ -97,22 +97,22 @@ export default async function EditorPage({
         </div>
 
         {zeroSum && (
-          <p className="mt-5 flex items-center gap-2 rounded-lg border border-error/30 bg-error/5 px-4 py-3 text-sm font-medium text-error">
+          <p className="mt-5 flex items-center gap-2 rounded-lg border border-error/30 bg-error/5 px-2.5 py-3 sm:px-4 text-sm font-medium text-error">
             <AlertTriangle className="h-4 w-4 shrink-0" strokeWidth={2.25} />
             Suma udziałów wynosi 0 — uzupełnij liczby udziałów, żeby policzyć %.
           </p>
         )}
 
         {/* Tabela wspólników */}
-        <div className="mt-5 overflow-hidden rounded-lg border border-border bg-surface shadow-sm">
+        <div className="mt-5 overflow-x-auto rounded-lg border border-border bg-surface shadow-sm">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border bg-background/60 text-xs uppercase tracking-wide text-muted">
-                <th className="px-4 py-3 text-left font-semibold">Wspólnik</th>
-                <th className="px-4 py-3 text-left font-semibold">Typ</th>
-                <th className="px-4 py-3 text-right font-semibold">Udziały</th>
-                <th className="px-4 py-3 text-right font-semibold">%</th>
-                <th className="w-12 px-4 py-3"></th>
+                <th className="px-2.5 py-3 sm:px-4 text-left font-semibold">Wspólnik</th>
+                <th className="px-2.5 py-3 sm:px-4 text-left font-semibold">Typ</th>
+                <th className="px-2.5 py-3 sm:px-4 text-right font-semibold">Udziały</th>
+                <th className="px-2.5 py-3 sm:px-4 text-right font-semibold">%</th>
+                <th className="w-12 px-2.5 py-3 sm:px-4"></th>
               </tr>
             </thead>
             <tbody>
@@ -131,17 +131,17 @@ export default async function EditorPage({
                     key={r.id}
                     className="border-b border-border last:border-0"
                   >
-                    <td className="px-4 py-3 font-medium text-text">{r.name}</td>
-                    <td className="px-4 py-3 text-muted">
+                    <td className="px-2.5 py-3 sm:px-4 font-medium text-text">{r.name}</td>
+                    <td className="px-2.5 py-3 sm:px-4 text-muted">
                       {SHAREHOLDER_TYPE_LABELS[r.type]}
                     </td>
-                    <td className="num px-4 py-3 text-text">
+                    <td className="num px-2.5 py-3 sm:px-4 text-text">
                       {formatShares(Number(r.shares))}
                     </td>
-                    <td className="num px-4 py-3 text-text">
+                    <td className="num px-2.5 py-3 sm:px-4 text-text">
                       {zeroSum ? "—" : formatPercent(r.percent)}
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td className="px-2.5 py-3 sm:px-4 text-right">
                       <form action={deleteShareholder}>
                         <input type="hidden" name="id" value={r.id} />
                         <input
@@ -165,14 +165,14 @@ export default async function EditorPage({
             {count > 0 && (
               <tfoot>
                 <tr className="border-t-2 border-border bg-background/60 font-semibold text-text">
-                  <td className="px-4 py-3" colSpan={2}>
+                  <td className="px-2.5 py-3 sm:px-4" colSpan={2}>
                     Razem
                   </td>
-                  <td className="num px-4 py-3">{formatShares(totalShares)}</td>
-                  <td className="num px-4 py-3">
+                  <td className="num px-2.5 py-3 sm:px-4">{formatShares(totalShares)}</td>
+                  <td className="num px-2.5 py-3 sm:px-4">
                     {zeroSum ? "—" : formatPercent(100)}
                   </td>
-                  <td className="px-4 py-3"></td>
+                  <td className="px-2.5 py-3 sm:px-4"></td>
                 </tr>
               </tfoot>
             )}

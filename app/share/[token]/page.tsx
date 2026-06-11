@@ -111,27 +111,27 @@ export default async function SharePage({
           </p>
         </div>
       ) : (
-        <div className="mt-6 overflow-hidden rounded-lg border border-border bg-surface shadow-sm">
+        <div className="mt-6 overflow-x-auto rounded-lg border border-border bg-surface shadow-sm">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border bg-background/60 text-xs uppercase tracking-wide text-muted">
-                <th className="px-4 py-3 text-left font-semibold">Wspólnik</th>
-                <th className="px-4 py-3 text-left font-semibold">Typ</th>
-                <th className="px-4 py-3 text-right font-semibold">Udziały</th>
-                <th className="px-4 py-3 text-right font-semibold">%</th>
+                <th className="px-2.5 py-3 sm:px-4 text-left font-semibold">Wspólnik</th>
+                <th className="px-2.5 py-3 sm:px-4 text-left font-semibold">Typ</th>
+                <th className="px-2.5 py-3 sm:px-4 text-right font-semibold">Udziały</th>
+                <th className="px-2.5 py-3 sm:px-4 text-right font-semibold">%</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
                 <tr key={r.id} className="border-b border-border last:border-0">
-                  <td className="px-4 py-3 font-medium text-text">{r.name}</td>
-                  <td className="px-4 py-3 text-muted">
+                  <td className="px-2.5 py-3 sm:px-4 font-medium text-text">{r.name}</td>
+                  <td className="px-2.5 py-3 sm:px-4 text-muted">
                     {SHAREHOLDER_TYPE_LABELS[r.type]}
                   </td>
-                  <td className="num px-4 py-3 text-text">
+                  <td className="num px-2.5 py-3 sm:px-4 text-text">
                     {formatShares(Number(r.shares))}
                   </td>
-                  <td className="num px-4 py-3 text-text">
+                  <td className="num px-2.5 py-3 sm:px-4 text-text">
                     {formatPercent(r.percent)}
                   </td>
                 </tr>
@@ -139,11 +139,11 @@ export default async function SharePage({
             </tbody>
             <tfoot>
               <tr className="border-t-2 border-border bg-background/60 font-semibold text-text">
-                <td className="px-4 py-3" colSpan={2}>
+                <td className="px-2.5 py-3 sm:px-4" colSpan={2}>
                   Razem
                 </td>
-                <td className="num px-4 py-3">{formatShares(totalShares)}</td>
-                <td className="num px-4 py-3">{formatPercent(100)}</td>
+                <td className="num px-2.5 py-3 sm:px-4">{formatShares(totalShares)}</td>
+                <td className="num px-2.5 py-3 sm:px-4">{formatPercent(100)}</td>
               </tr>
             </tfoot>
           </table>
